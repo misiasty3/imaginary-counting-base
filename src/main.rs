@@ -1,6 +1,4 @@
-//use std::num::complex::Complex;
 use std::io::Write;
-//use std::num::*;
 use num_complex::Complex;
 use std::io;
 
@@ -36,7 +34,7 @@ fn main() {
     println!("<2> Convert (-1 + i) base to (10) base.");
     loop {
         match user_input("Choose conversion method <1-2>: ") {
-            1 => println!("Resulted (-1 + i) number: {}\n", real_to_imaginary(user_input("Enter real part of number: "), user_input("Enter imaginary part of number: "))),
+            1 => println!("Resulted (-1 + i) number: {}\n", real_to_imaginary(Complex::new(user_input("Enter real part of number: "), user_input("Enter imaginary part of number: ")))),
             2 => {
                 match imaginary_to_real(user_input_string("Enter number to convert: ")) {
                     Ok(n) => println!("Resulted complex number: {} + {}i\n", n.re, n.im),
@@ -49,18 +47,12 @@ fn main() {
     }
 }
 
-fn real_to_imaginary(r: i64, i: i64) -> String {
-    unimplemented!()
-    // let mut ans: Vec<char> = vec!();
-    // let mut num: Complex<i64> = Complex::new(r, i);
-    // const DIV: Complex<i64> = Complex::new(-1, 1);
-    // while (num != Complex{im: 0, re: 0}) {
-    //     ans.push(char::from_u32((num / DIV).re as u32).unwrap());
-    //     num = num / DIV;
-    // }
-    //
-    // let ret: String = ans.iter().rev().collect();
-    // ret
+fn real_to_imaginary(x: Complex<i64>) -> String {
+    unimplemented!();
+    const DIV = Complex::new(-1, 1);
+    while x.re != 0 && x.im != 0 {
+
+    }
 }
 
 fn imaginary_to_real(x: String) -> Result<Complex<i64>, String> {
